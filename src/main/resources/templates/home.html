@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+	div{
+		margin: 50px 50px;
+	}
+	
+	.box{
+		width: 100px;
+		height: 100px;
+	}
+</style>
+</head>
+<body>
+	
+	
+	<div>
+		<a href="otp"><button type="button">OTP</button></a> <br><br>
+		
+		<form action="check" method="post" th:if="${otp}">
+			<input type="number" th:value="${otp}" name="otp"> <br><br>
+			<button type="submit">Check Even/Odd</button>
+		</form>
+		
+		<h1 th:text="${msg}"  th:style="'color:' + 	 ${color}"></h1>
+	
+	</div>
+	
+	
+	
+	<div>
+		<a href="otp1"><button type="button"> Generate OTP</button></a> 
+		<span th:text="${otp1}"></span>
+		
+	</div>
+	
+	<div>
+		<!-- Coin -->
+		<a href="toss"><button type="button"> Toss</button></a> 
+		<span th:text="${toss}"></span>
+	</div>
+	
+	<div>
+		<!-- Random Color Box -->
+		<a href="box"><button type="button"> Color Box</button></a> 
+		<h1 class="box"  th:style="'background-color:' + ${box}"   th:if="${box}"></h1>
+	</div>
+	
+	<div>
+		<!--Input Color Box -->
+		<form action="colorbox" method="post">
+			<input type="text" name="color">
+			<button>Generate Box</button>
+		</form>
+		
+		<h1 class="box"  th:style="'background-color:' + ${colorbox}"  th:if="${colorbox}" ></h1>
+	</div>
+	
+	<div>
+		<!--Input Color Box -->
+		<form action="colorname" method="post">
+			<input type="text" name="name">
+			<input type="color" name="color">
+			<button>Color Name</button>
+		</form>
+		
+		<h1  th:style="'color:' + ${colorname}"  th:text="${name}"  th:if="${colorname}" ></h1>
+	</div>
+	
+	
+	<div>
+		<!--calculator-->
+		<form action="calculator" method="post">
+			<h2>Calculator</h2>
+			<input type="number" name="ip1" th:value="${ip1}"><br><br>
+			<input type="number" name="ip2" th:value="${ip2}"><br><br>
+			<button name="op" value="add">+</button>
+			<button name="op" value="sub">-</button>
+			<button name="op" value="mul">*</button>
+			<button name="op" value="div">/</button>
+		</form>
+		
+		<h1 th:text="${result}" th:if="${result}" ></h1>
+	</div>
+</body>
+</html>
